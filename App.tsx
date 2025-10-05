@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
 import { supabase } from './lib/supabaseClient';
 import Auth from './Auth';
 import { Session } from '@supabase/supabase-js';
@@ -21,16 +20,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        {session && session.user ? <MainTabs /> : <Auth />}
-      </View>
+      {session && session.user ? <MainTabs /> : <Auth />}
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
